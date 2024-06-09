@@ -6,7 +6,10 @@
     <h1>Home page</h1>
     {% if user.is_authenticated %}
         <p>welcome {{ user.username }}</p>
-        <a href="{% url 'logout' %}">Log Out</a>
+        <form action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input value="Log Out" type="submit">
+        </form>
     {% else %}
         <a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'login' %}">Log In</a>
     {% endif %}
