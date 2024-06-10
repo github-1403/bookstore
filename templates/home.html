@@ -6,7 +6,7 @@
     <h1>Home page</h1>
     {% if user.is_authenticated %}
         <p>welcome {{ user.username }}</p>
-        <form action="{% url 'logout' %}">
+        <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <input value="Log Out" type="submit">
         </form>
