@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    book {{ book.id }}
+{% endblock title %}
+
+
+{% block content %}
+    <h1>{{ book.title }}</h1>
+    <p>{{ book.description }}</p>
+    <p>{{ book.author }}</p>
+    <h4>{{ book.price }}</h4>
+    <a href="{% url 'books_list'%}">بازگشت به لیست کتاب ها</a>
+{% endblock content %}
