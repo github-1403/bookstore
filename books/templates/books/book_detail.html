@@ -11,6 +11,7 @@
     <p>{{ book.author }}</p>
     <h4>{{ book.price }}</h4>
     <a href="{% url 'book_edit' book.id %}"><button type="button" class="btn btn-info">ویرایش کتاب</button></a>
+    <a href="{% url 'book_delete' book.id %}"><button type="button" class="btn btn-danger">حذف کتاب</button></a>
     <br/>
     <a href="{% url 'books_list'%}">بازگشت به لیست کتاب ها</a>
 {% endblock content %}
