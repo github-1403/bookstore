@@ -6,8 +6,8 @@
 
 
 {% block content %}
-    <h1>{{ book.title }}</h1>
-    <p>{{ book.description }}</p>
+    <h1>{{ book.title|capfirst }}</h1>
+    <p>{{ book.description|linebreaks }}</p>
     <p>{{ book.author }}</p>
     <h4>{{ book.price }}</h4>
     <a href="{% url 'book_edit' book.id %}"><button type="button" class="btn btn-info">ویرایش کتاب</button></a>
