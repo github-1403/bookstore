@@ -14,14 +14,15 @@
                         <div class="col-md-4">
                             {% if book.cover %}
                                 <img src="{{ book.cover.url }}"
-                                 class="img-fluid rounded-start" alt="...">
+                                     class="img-fluid rounded-start" alt="...">
                             {% endif %}
 
                         </div>
                         <div class="col-md-8 h-100">
                             <div class="d-flex flex-column justify-content-between h-100">
                                 <div class="card-body">
-                                    <a href="{{ book.get_absolute_url }}" class="text-decoration-none"><h3 class="card-title"><strong>{{ book.title|capfirst }}</strong></h3></a>
+                                    <a href="{{ book.get_absolute_url }}" class="text-decoration-none"><h3
+                                            class="card-title"><strong>{{ book.title|capfirst }}</strong></h3></a>
                                     <p class="card-text pt-3">{{ book.description|truncatewords:15 }}</p>
 
                                     <p class="text-muted">نویسنده: {{ book.author }}</p>
@@ -35,6 +36,25 @@
 
         </div>
     </div>
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" >Previous</a>
+                </li>
+            {% endif %}
+
+            <li class="page-item">
+                <a class="page-link" href="#">{{ page_obj.number }}</a>
+            </li>
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
     <footer class="bg-light text-center text-lg-start mt-5">
         <div class="text-center bg-grey">
             <p
